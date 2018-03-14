@@ -23,7 +23,7 @@ public class SettingController {
         return "Setting OK" + wendaService.getMessage(1) ;
     }
 
-    @RequestMapping(path={"/","/in"}, method = {RequestMethod.GET})
+    @RequestMapping(path={"/in"}, method = {RequestMethod.GET})
     @ResponseBody
     public  String  in(HttpSession httpSession) {
        // logger.info("sss");

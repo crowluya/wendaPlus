@@ -25,12 +25,12 @@ import java.util.Map;
 public class IndexController {
      @Autowired
      WendaService wendaService;
- //   WendaService wendaService = new WendaService();
-    @RequestMapping(path={"/index","/"}, method = {RequestMethod.GET})
-    @ResponseBody
-    public  String  index(HttpSession httpSession) {
-        return " Hello NewCoder" + httpSession.getAttribute("msg") ;
-    }
+   //   WendaService wenda Service = new WendaService();
+   // @RequestMapping(path={"/index","/"}, method = {RequestMethod.GET})
+   // @ResponseBody
+   // public  String  index(HttpSession httpSession) {
+  //      return " Hello NewCoder" + httpSession.getAttribute("msg") ;
+  //  }
 
     @RequestMapping(path={"/profile/{groupId}/{userId}"})
     @ResponseBody
@@ -47,8 +47,7 @@ public class IndexController {
 
     public  String template(Model model)  {
         model.addAttribute("value1","aaaaa1");
-
-
+        model.addAttribute("msg","这个字符串啊");
       Map<String, String> map = new HashMap<>();
         for (int i = 0; i < 4; ++i)
         {

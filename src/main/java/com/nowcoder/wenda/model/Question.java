@@ -5,11 +5,11 @@ import java.util.Date;
 /**
  * Created by Administrator on 2018/3/11.
  */
-public class Qusetion {
+public class Question {
     private int id;
-    private String tittle;
+    private String title;
     private String content;
-    private Date createDate;
+    private Date createdDate;
     private int userId;
     private int commentCount;
 
@@ -21,12 +21,12 @@ public class Qusetion {
         this.id = id;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -37,12 +37,12 @@ public class Qusetion {
         this.content = content;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public int getUserId() {

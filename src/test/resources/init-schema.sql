@@ -1,3 +1,16 @@
+
+DROP  TABLE  IF EXISTS  'login_ticket';
+CREATE  TABLE  'login_ticket'(
+   'id' INT  NOT  NULL ,
+   'user_id' INT  NOT  NULL,
+   'ticket' VARCHAR (45) NOT  NULL,
+   'expired' DATETIME NOT NULL ,
+   'status' INT  NULL DEFAULT 0,
+   PRIMARY KEY ('id'),
+   UNIQUE KEY('id'),
+   UNIQUE INDEX 'ticket_UNIQUE'('ticket' DEC)
+) ENGINE= InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `id` INT NOT NULL AUTO_INCREMENT,

@@ -1,6 +1,8 @@
 package com.nowcoder.wenda;
 
+import com.nowcoder.wenda.dao.QuestionDao;
 import com.nowcoder.wenda.dao.UserDao;
+import com.nowcoder.wenda.model.Question;
 import com.nowcoder.wenda.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.junit.Assert;
@@ -13,6 +15,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.mysql.jdbc.Driver;
+
+import java.util.Date;
 import java.util.Random;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,7 +27,8 @@ import java.util.Random;
 public class initDataBaseTests {
     @Autowired
 	UserDao userDao;
-
+    @Autowired
+    QuestionDao questionDao;
 
 
 	@Test
@@ -42,11 +47,26 @@ public class initDataBaseTests {
 
            user.setPassword("xx");
            userDao.updatePassword(user);
+
+			Question question = new Question();
+			question.setCommentCount(i);
+			Date date = new Date();
+			date.setTime(date.getTime() + 1000 *3600 *i );
+			question.setCreatedDate(date);
+			question.setUserId(i+1);
+			question.setTitle(String.format("Title%d", i));
+			question.setContent(String.format("Balalalallala Content%d", i));
+
+			questionDao.addQuestion(question);
 		}
 
 		Assert.assertEquals("xx", userDao.selectedById(1).getPassword());
         userDao.deleteById(1);
         Assert.assertNull(userDao.selectedById(1));
+
+
+		System.out.print(questionDao.selectLatestQuestions(0,0,10));
 	}
+
 
 }
